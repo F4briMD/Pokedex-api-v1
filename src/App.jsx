@@ -3,21 +3,19 @@ import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
 
 import './App.css'
 import Header from './components/Header'
-import Home from './pages/Home';
+import PokeProvider from './context/PokeProvider';
+import AppRouter from './AppRouter';
+
 
 function App() {
   
 
   return (
-    <main className='flex flex-col items-center h-full max-w-6xl m-auto'>
-      <Router>
-        <Header/>
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-        </Routes>
-      </Router>
-      
-    </main>
+    
+      <PokeProvider>
+        <AppRouter/>
+      </PokeProvider>
+    
   )
 }
 
