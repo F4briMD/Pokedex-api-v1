@@ -12,9 +12,10 @@ const Header = () => {
           placeholder='Buscar pokemon...'
           className='flex-1 outline-none pr-[60px]'
           />
-          <img src={Search} className='items-center justify-center px-2 text-gray-300 cursor-pointer flex-2'>
-            
-          </img>
+          <img src={Search}
+           className='items-center justify-center px-2 text-gray-300 cursor-pointer flex-2'
+          //  onClick={}
+         />
         </div>
       
         <Nav/>

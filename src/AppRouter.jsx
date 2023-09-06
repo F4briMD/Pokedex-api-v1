@@ -11,7 +11,7 @@ function AppRouter() {
   
 
   return (
-    <main className='flex flex-col items-center h-full max-w-6xl m-auto'>
+    <main className='flex flex-col items-center h-full m-auto '>
       <Router>
         <Header/>
         <Routes>
