@@ -4,7 +4,7 @@ import CardPoke from "./CardPoke";
 import Loader from "./Loader";
 
 const PokemonList = () => {
-  const { allPokemons,loading, filteredPokes } = useContext(PokeContext);
+  const { allPokemons,loading, filteredPokes,typedSelect } = useContext(PokeContext);
 
   return (
     <>
@@ -19,11 +19,15 @@ const PokemonList = () => {
           ))}
         </>
       ) : (
-        <>
+        Object.keys(typedSelect).some(type => typedSelect[type]) ? (
+          <p>No hay Resultados</p>
+        ) : (
+          <>
           {allPokemons.map((pokemon) => (
             <CardPoke pokemon={pokemon} key={pokemon.id} />
           ))}
         </>
+        )    
       )}
     </section>
     )}
