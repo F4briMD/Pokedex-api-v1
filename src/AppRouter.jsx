@@ -6,16 +6,19 @@ import Header from './components/Header'
 import Home from './pages/Home';
 import PokePage from './pages/PokePage';
 import SearchPage from './pages/SearchPage';
+import { useState } from 'react';
 
 function AppRouter() {
   
+  const [loading,setLoading]= useState(true)
+
 
   return (
-    <main className='flex flex-col items-center h-full m-auto '>
+    <main className='flex flex-col items-center h-full m-auto max-md:w-4/5'>
       <Router>
         <Header/>
         <Routes>
-          <Route path='/' element={<Home/>}/>
+          <Route path='/' element={<Home loading={loading}/>}/>
           <Route path='/pokemon/:id' element={<PokePage/>}/>
           <Route path='/search' element={<SearchPage/>}/>
         </Routes>

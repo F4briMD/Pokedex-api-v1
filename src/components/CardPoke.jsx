@@ -20,7 +20,7 @@ const CardPoke = ({ pokemon }) => {
                 {pokemon.types.map(type=>(
                     <span key={type.type.name} 
                         className={type.type.name}            
-              >
+                    >
                 {type.type.name}
               </span>
                 ))}
