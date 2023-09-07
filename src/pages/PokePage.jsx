@@ -32,28 +32,29 @@ const PokePage = () => {
         loading ? (
           <Loader/>
         ) : (
-          <main className='text-white'>
+          <main className='flex flex-col px-5 py-3 mt-5 text-white rounded-lg bg-neutral-600'>
 
-            <div className=''>
-						<span className=''>#{pokemon.id}</span>
-						<div className=''>
+        <div className=''>
+						<span className='text-xl font-semibold '>#{pokemon.id}</span>
+					<div className=''>
 							<img
 								src={pokemon.sprites.other.dream_world.front_default}
-                // width={}
+                
 								alt={`Pokemon ${pokemon?.name}`}
+                className='w-[250px] h-full object-contain'
 							/>
-						</div>
+					</div>
 
 						<div className=''>
-							<h1>{firstMayus(pokemon.name)}</h1>
-							<div className=''>
+							<h1 className='py-2 text-lg font-bold text-center'>{firstMayus(pokemon.name)}</h1>
+							<div className='flex flex-row justify-around p-2'>
 								{pokemon.types.map(type => (
-									<span key={type.type.name} className={`${type.type.name}`}>
+									<span  key={type.type.name} className={` ${type.type.name}`}>
 										{type.type.name}
 									</span>
 								))}
 							</div>
-							<div className=''>
+							<div className='flex flex-row justify-around gap-2 py-1 bg-gray-500 rounded-full text-cente1'>
 								<div className=''>
 									<p>Altura</p>
 									<span>{pokemon.height}</span>
@@ -66,9 +67,9 @@ const PokePage = () => {
 						</div>
 					</div>
 
-					<div className=''>
-						<h1>Estadísticas</h1>
-						<div className=''>
+					<div className='mt-2 '>
+						<h1 className='mb-2 text-base font-bold text-center'>Estadísticas</h1>
+						<div className='grid grid-cols-2 gap-2 px-2 py-1 text-center bg-gray-400 rounded-xl'>
 							<div className=''>
 								<span>Hp</span>
 								<div className=''></div>

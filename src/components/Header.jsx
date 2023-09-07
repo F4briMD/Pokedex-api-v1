@@ -1,7 +1,8 @@
 // import Nav from './Nav.jsx'
-import Search from '../assets/img/search.svg'
+
 import Ball from '../assets/img/ball.png'
 import { Link } from 'react-router-dom'
+import SearchInput from './SearchInput'
 const Header = () => {
   return (
     <section className='w-full bg-slate-600'>
@@ -14,7 +15,8 @@ const Header = () => {
           </div>
         </Link>
           
-        <div className='bg-white rounded-md w-[320px] flex h-[38px] py-[10px] pl-[15px] divide-x divide-2 divide-gray-300'>
+          <SearchInput/>
+        {/* <div className='bg-white rounded-md w-[320px] flex h-[38px] py-[10px] pl-[15px] divide-x divide-2 divide-gray-300'>
           <input          
           placeholder='Buscar pokemon...'
           className='flex-1 outline-none pr-[60px]'
@@ -23,7 +25,7 @@ const Header = () => {
            className='items-center justify-center px-2 text-gray-300 cursor-pointer flex-2'
           //  onClick={}
          />
-        </div>
+        </div> */}
       
         <nav className='flex items-center font-semibold text-white '>
         <Link className='pr-2' to='/'>Inicio</Link>

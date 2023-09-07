@@ -15,12 +15,12 @@ const PokeProvider = ({children}) => {
 
     //State simples
     const [loading,setLoading]=useState(true)
-    const [active,setActive] = useState(false)
+    // const [active,setActive] = useState(false)
 
     //LLamar a la api
     const getAllPoke = async(limit= 50)=>{
         const baseUrl = 'https://pokeapi.co/api/v2/'
-            const res = await fetch(`${baseUrl}pokemon?limit=${limit}&offset${offset}`)
+            const res = await fetch(`${baseUrl}pokemon?limit=${limit}&offset=${offset}`)
             const data = await res.json();
             
             const promises = data.results.map(async(pokemon)=>{
@@ -30,6 +30,7 @@ const PokeProvider = ({children}) => {
             })
             const results = await Promise.all(promises)
 
+            // setAllPokemons(prevPokemons=>[...prevPokemons,...results])
             setAllPokemons([...allPokemons,...results])
             setLoading(false)
     }
@@ -61,11 +62,17 @@ const PokeProvider = ({children}) => {
 
     useEffect(()=>{
         getAllPoke()
-    },[])
+    },[offset])
 
     useEffect(()=>{
         getGlobalPoke()
     },[])
+
+    //Cargar mas
+    const onClickLoadMore =()=>{
+        setOffset(offset + 50)
+    }
+    
 
   return (
     <PokeContext.Provider value={{
@@ -74,6 +81,8 @@ const PokeProvider = ({children}) => {
         onResetForm,
         allPokemons,
         globalPokemons,
+        loading,
+        onClickLoadMore,
         getPokeByID
     }}>
 
