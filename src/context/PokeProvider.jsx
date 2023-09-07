@@ -72,7 +72,54 @@ const PokeProvider = ({children}) => {
     const onClickLoadMore =()=>{
         setOffset(offset + 50)
     }
-    
+
+    //Filter
+    const [filteredPokes,setFilteredPokes]=useState([])
+    const [typedSelect,setTypedSelect]= useState({
+        grass: false,
+		normal: false,
+		fighting: false,
+		flying: false,
+		poison: false,
+		ground: false,
+		rock: false,
+		bug: false,
+		ghost: false,
+		steel: false,
+		fire: false,
+		water: false,
+		electric: false,
+		psychic: false,
+		ice: false,
+		dragon: false,
+		dark: false,
+		fairy: false,
+		unknow: false,
+		shadow: false,
+    })
+    const handleCheckbox = (e) =>{
+
+        setTypedSelect({
+            ...typedSelect,
+            [e.target.name]: e.target.checked,
+        })
+
+        if (e.target.checked) {
+            const filteredResults = globalPokemons.filter(pokemon => 
+            pokemon.types.map(type => type.type.name)
+            .includes(e.target.name)
+        )
+        setFilteredPokes([...filteredPokes,...filteredResults])
+    }else{
+        const filteredResults = filteredPokes.filter(pokemon => 
+            !pokemon.types.map(type => type.type.name)
+            .includes(e.target.name)
+        )
+        setFilteredPokes([...filteredResults])
+    }
+       
+        
+    }
 
   return (
     <PokeContext.Provider value={{
@@ -82,8 +129,10 @@ const PokeProvider = ({children}) => {
         allPokemons,
         globalPokemons,
         loading,
+        filteredPokes,
         onClickLoadMore,
-        getPokeByID
+        getPokeByID,
+        handleCheckbox
     }}>
 
         {children}
