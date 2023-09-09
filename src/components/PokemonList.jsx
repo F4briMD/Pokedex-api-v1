@@ -11,7 +11,7 @@ const PokemonList = () => {
     {loading ? (
       <Loader/>
     ) : (
-    <section className="grid justify-center grid-cols-6 mx-auto gap-y-6 max-md:grid-cols-3 gap-x-4 max-lg:grid-cols-5 ">
+    <section className="grid justify-center grid-cols-6 mx-auto gap-y-6 max-md:grid-cols-3 max-sm:grid-cols-2 gap-x-4 max-lg:grid-cols-4 ">
       {filteredPokes.length ? (
         <>
           {filteredPokes.map((pokemon) => (
