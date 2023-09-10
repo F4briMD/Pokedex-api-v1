@@ -12,7 +12,7 @@ const Home = () => {
       {loading ? (
         <Loader />
       ) : (
-        <main className="w-full px-5 py-3 my-5 bg-white rounded-lg max-w-7xl">
+        <main className="w-full px-5 py-3 my-5 bg-[#f7f7f7] rounded-lg max-w-7xl">
           <section className="flex w-full ">
             <div className="w-1/5 h-screen ">
               <FilterBarra />

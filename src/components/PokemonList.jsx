@@ -20,7 +20,7 @@ const PokemonList = () => {
         </>
       ) : (
         Object.keys(typedSelect).some(type => typedSelect[type]) ? (
-          <p>No hay Resultados</p>
+          <p className="">No hay Resultados</p>
         ) : (
           <>
           {allPokemons.map((pokemon) => (

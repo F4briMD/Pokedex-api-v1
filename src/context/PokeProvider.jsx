@@ -102,19 +102,8 @@ const PokeProvider = ({ children }) => {
       ...typedSelect,
       [e.target.name]: e.target.checked,
     });
-
-    // if (e.target.checked) {
-    //   const filteredResults = globalPokemons.filter((pokemon) =>
-    //     pokemon.types.map((type) => type.type.name).includes(e.target.name)
-    //   );
-    //   setFilteredPokes([...filteredPokes, ...filteredResults]);
-    // } else {
-    //   const filteredResults = filteredPokes.filter(
-    //     (pokemon) =>
-    //       !pokemon.types.map((type) => type.type.name).includes(e.target.name)
-    //   );
-    //   setFilteredPokes([...filteredResults]);
-    // }
+    
+  
     const selectedTypes = Object.keys(typedSelect).filter(type => typedSelect[type]);
 
   if (e.target.checked) {
@@ -148,6 +137,7 @@ const PokeProvider = ({ children }) => {
         onClickLoadMore,
         getPokeByID,
         handleCheckbox,
+        
       }}
     >
       {children}
