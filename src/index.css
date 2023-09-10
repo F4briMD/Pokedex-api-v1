@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-	--color-fire: #ff7402;
+	/* --color-fire: #ff7402;
 	--color-grass: #9bcc50;
 	--color-steel: #9eb7b8;
 	--color-water: #4592c4;
@@ -25,7 +25,31 @@
 	--color-unknow: #757575;
 
 	--color-primary: #006d77;
-	--color-primary-hover: #83c5be;
+	--color-primary-hover: #83c5be; */
+	
+	--color-fire: 255,116,2;
+	--color-grass: 155,204,80;
+	--color-steel: 158,183,184;
+	--color-water: 69,146,196;
+	--color-psychic: 243,102,185;
+	--color-ground: 171,152,66;
+	--color-ice: 81,196,231;
+	--color-flying: 117,173,189;
+	--color-ghost: 77,91,100;
+	--color-normal: 164,172,175;
+	--color-poison: 126,0,88;
+	--color-rock: 163,140,33;
+	--color-fighting: 213,103,35;
+	--color-dark: 112,112,112;
+	--color-bug: 114,159,63;
+	--color-electric: 187,169,9;
+	--color-dragon:83, 63, 199;
+	--color-fairy: 253,185,233;
+	--color-shadow: 123,98,163;
+	--color-unknow: 117,117,117;
+
+	--color-primary: 0,109,119;
+	--color-primary-hover: 131,197,190;
 }
 
 body{
@@ -44,6 +68,77 @@ body{
 
 /* Tipos de Pokemons */
 .water {
+	background-color: rgba(var(--color-water));
+}
+
+.grass {
+	background-color: rgba(var(--color-grass));
+}
+
+.poison {
+	background-color: rgba(var(--color-poison));
+}
+
+.fire {
+	background-color: rgba(var(--color-fire));
+}
+
+.bug {
+	background-color: rgba(var(--color-bug));
+}
+
+.dragon {
+	background: rgba(var(--color-dragon));
+}
+
+.flying {
+	background-color: rgba(var(--color-flying));
+}
+
+.ground {
+	background-color: rgba(var(--color-ground));
+}
+
+.steel {
+	background-color: rgba(var(--color-steel));
+}
+
+.psychic {
+	background-color: rgba(var(--color-psychic));
+}
+
+.ice {
+	background-color: rgba(var(--color-ice));
+}
+
+.ghost {
+	background-color: rgba(var(--color-ghost));
+}
+
+.normal {
+	background-color: rgba(var(--color-normal));
+}
+
+.rock {
+	background-color: rgba(var(--color-rock));
+}
+
+.electric {
+	background-color: rgba(var(--color-electric));
+}
+
+.fighting {
+	background-color: rgba(var(--color-fighting));
+}
+
+.fairy {
+	background-color: rgba(var(--color-fairy));
+}
+
+.dark {
+	background-color: rgba(var(--color-dark));
+}
+/* .water {
 	background-color: var(--color-water);
 }
 
@@ -113,4 +208,4 @@ body{
 
 .dark {
 	background-color: var(--color-dark);
-}
+} */
