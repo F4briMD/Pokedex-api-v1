@@ -14,14 +14,17 @@ function AppRouter() {
 
 
   return (
-    <main className='flex flex-col items-center h-full m-auto max-md:w-4/5'>
+    <main className='flex flex-col items-center h-full mx-auto '>
       <Router>
         <Header/>
-        <Routes>
+        <section className='w-full mx-auto max-md:w-4/5 max-sm:w-full max-w-7xl'>
+          <Routes>
           <Route path='/' element={<Home loading={loading}/>}/>
           <Route path='/pokemon/:id' element={<PokePage/>}/>
           <Route path='/search' element={<SearchPage/>}/>
         </Routes>
+        </section>
+        
       </Router>
       
     </main>

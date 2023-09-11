@@ -20,7 +20,7 @@ const SearchInput = () => {
   return (
     <>
         <form onSubmit={onSearchSubmit}
-        className='bg-white rounded-md w-[320px] flex h-[38px] py-[10px] pl-[15px] divide-x divide-2 divide-gray-300'>
+        className='bg-white max-md:hidden rounded-md w-[320px] flex h-[38px] py-[10px] pl-[15px] divide-x divide-2 divide-gray-300'>
           <input   
           type='search'       
           name='valueSearch'

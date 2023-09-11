@@ -21,7 +21,7 @@ const CardPoke = ({ pokemon }) => {
           <div className="flex flex-col items-center justify-between mx-auto">
             
             <h2 className="mt-[5px] font-medium">{firstMayus(pokemon.name)}</h2>
-            <div className="flex flex-row justify-center w-full text-center card-types max-sm:flex-col " id="">
+            <div className="flex flex-row justify-center w-full text-center card-types max-xs:flex-col ">
                 {pokemon.types.map(type=>(
                     <span key={type.type.name} 
                         className={`${type.type.name} min-w-[60px]  text-sm px-[5px] py-[5px] rounded-full text-white font-semibold`}            

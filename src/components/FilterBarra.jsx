@@ -25,10 +25,10 @@ const FilterBarra = () => {
   const { handleCheckbox, typedSelect } = useContext(PokeContext);
 
   return (
-    <section className="flex flex-col w-[220px] mx-auto ">
+    <section className="flex flex-col  w-[220px] max-md:hidden max-lg:w-[130px] mx-auto ">
       <h3>Filtros</h3>
-      <span>Tipo</span>
-      <div className="grid grid-cols-2 gap-3">
+      <span className="py-2 leading-8 ">Filtrar por tipo</span>
+      <div className="grid grid-cols-2 gap-3 max-lg:grid-cols-1">
         {/* <div className=" grass">
           <input
             type="checkbox"

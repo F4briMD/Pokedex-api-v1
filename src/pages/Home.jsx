@@ -14,10 +14,10 @@ const Home = () => {
       ) : (
         <main className="w-full px-5 py-3 my-5 bg-[#f7f7f7] rounded-lg max-w-7xl">
           <section className="flex w-full ">
-            <div className="w-1/5 h-screen ">
+            <div className="w-1/5 h-screen max-md:w-0">
               <FilterBarra />
             </div>
-            <div className="w-4/5 ml-3 ">
+            <div className="w-4/5 ml-3 max-md:w-full max-md:ml-0">
               <PokemonList />
               {!Object.values(typedSelect).includes(true) && (
                 <div className="my-4 text-center">

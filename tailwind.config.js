@@ -8,11 +8,12 @@ export default {
   theme: {
     extend: {
       fontFamily:{
-        // Roboto:['Roboto Mono', 'monospace'],
-        // Poppins:['Poppins', 'sans-serif']
+       
+       robotomono:['Roboto Mono', 'monospace']
       },
       screens:{
-        xs:'375px'
+        xs:'460px',
+        xm:'375px',
       }
     },
     container:{
