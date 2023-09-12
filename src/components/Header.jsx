@@ -7,6 +7,9 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMovil, setIsMovil] = useState(false);
 
+  // const openMenu = ()=>{
+  //   setIsMenuOpen(true)
+  // }
 
   useEffect(() => {
     const handleResize = () => {
@@ -21,8 +24,8 @@ const Header = () => {
 
 
   return (
-    <section className="w-full bg-slate-600">
-      <header className="flex items-center justify-between px-3 py-4 mx-auto max-w-7xl ">
+    <section className="z-40 w-full bg-slate-600 max-md:fixed">
+      <header className="flex items-center justify-between px-3 py-4 mx-auto max-w-7xl">
         <Link to="/">
           <div className="flex flex-row items-center cursor-pointer">
             <img src={Ball} width="46px" alt="Pokeball" />
@@ -34,7 +37,7 @@ const Header = () => {
 
         <SearchInput />
 
-        <nav className="flex items-center font-semibold text-white max-md:hidden ">
+        <nav className="flex items-center font-semibold text-white max-md:hidden">
           <Link className="pr-2" to="/">
             Inicio
           </Link>
@@ -43,8 +46,41 @@ const Header = () => {
           </Link>
         </nav>
 
-        {isMovil && <ToggleMenu isMenuOpen={isMenuOpen} />}
+        {isMovil && <button
+            onClick={()=>(
+              setIsMenuOpen(!isMenuOpen)
+            )}
+            className="text-white focus:outline-none"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {isMenuOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>}
       </header>
+      <ToggleMenu
+      isMenuOpen={isMenuOpen}
+      setIsMenuOpen={setIsMenuOpen}
+      />
     </section>
   );
 };
