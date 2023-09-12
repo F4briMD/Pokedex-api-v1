@@ -26,7 +26,7 @@ const FilterBarra = () => {
 
   return (
     <>
-      
+      {/* <div className="flex flex-col  w-[220px]  max-lg:w-[130px] mx-auto"></div> */}
      
         <div className=" filter-check grass hover:bg-lime-600">
           <input

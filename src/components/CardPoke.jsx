@@ -9,7 +9,7 @@ const CardPoke = ({ pokemon }) => {
       <Link
         to={`/pokemon/${pokemon.id}`}      
       >
-        <article className="z-0 relative bg-[#f7f7f7] flex flex-col items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] p-[5px] rounded-lg hover:bg-slate-200 transition duration-300">
+        <article className="z-0 relative h-full bg-[#f7f7f7] flex flex-col items-center shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] p-[5px] rounded-lg hover:bg-slate-200 transition duration-300">
         <div
           className={`mt-2  rounded-full shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]`}
           style={{
@@ -31,7 +31,7 @@ const CardPoke = ({ pokemon }) => {
             {pokemon.types.map((type) => (
               <span
                 key={type.type.name}
-                className={`${type.type.name} min-w-[60px]  text-sm px-[5px] py-[5px] rounded-full text-white font-semibold`}
+                className={`${type.type.name} min-w-[60px]  text-sm max-md:text-xs px-[5px] py-[5px] rounded-full text-white font-semibold`}
               >
                 {firstMayus(type.type.name)}
               </span>

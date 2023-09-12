@@ -94,6 +94,21 @@ body{
 		
 	  }
 
+	  #scrollButton {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		background-color: #d1361b;
+		color: #eeeeee;
+		padding: 7px;
+		border-radius: 50%;
+		display: none;
+		cursor: pointer;
+	  }
+	  
+	  #scrollButton.show {
+		display: block;
+	  }
 
 /* Tipos de Pokemons */
 .water {

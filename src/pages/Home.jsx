@@ -3,6 +3,7 @@ import { PokeContext } from "../context/PokeContext";
 import PokemonList from "../components/PokemonList";
 import FilterBarra from "../components/FilterBarra";
 import Loader from "../components/Loader";
+import Gotop from "../components/Gotop";
 
 const Home = () => {
   const { loading, onClickLoadMore, typedSelect } = useContext(PokeContext);
@@ -35,6 +36,7 @@ const Home = () => {
               )}
             </div>
           </section>
+          <Gotop/>
         </main>
       )}
     </>
