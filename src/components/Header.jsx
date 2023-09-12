@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SearchInput from "./SearchInput";
 import { useState,useEffect } from "react";
 import ToggleMenu from "./ToggleMenu";
+import Navlink from "./Navlink";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMovil, setIsMovil] = useState(false);
@@ -34,17 +35,22 @@ const Header = () => {
             </span>
           </div>
         </Link>
-
-        <SearchInput />
-
-        <nav className="flex items-center font-semibold text-white max-md:hidden">
+        <div className="max-md:hidden">
+           <SearchInput />
+        </div>
+       
+        <div className="max-md:hidden">
+          {/* <nav className="flex items-center font-semibold text-white ">
           <Link className="pr-2" to="/">
             Inicio
           </Link>
           <Link className="pr-2" to="">
             Pokedex
           </Link>
-        </nav>
+        </nav> */}
+        <Navlink/>
+        </div>
+        
 
         {isMovil && <button
             onClick={()=>(
