@@ -60,6 +60,19 @@ const PokeProvider = ({ children }) => {
     return data;
   };
 
+  // const getMoves = async(id) =>{
+  //   const MoveURL = 'https://pokeapi.co/api/v2/'
+  //   const res = await fetch(`${MoveURL}pokemon/${id}`)
+  //   const data = await res.json()
+    
+  //   const promises = data.moves.map(async(moves)=>{
+  //     const res = await fetch(moves.url)
+  //     const data = await res.json()
+  //     return data
+  //   })
+  //   const moves = await Promise.all(promises)
+  // }
+
   useEffect(() => {
     getAllPoke();
   }, [offset]);
@@ -137,7 +150,7 @@ const PokeProvider = ({ children }) => {
         onClickLoadMore,
         getPokeByID,
         handleCheckbox,
-        
+        // getMoves
       }}
     >
       {children}
