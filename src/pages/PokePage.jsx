@@ -6,13 +6,13 @@ import { firstMayus } from "../helper/helper";
 import Gotop from "../components/Gotop";
 
 const PokePage = () => {
-  const { getPokeByID } = useContext(PokeContext);
+  const { getPokeByID,setFilterState } = useContext(PokeContext);
 
   const [loading, setLoading] = useState(true);
   const [pokemon, setPokemon] = useState({});
 
   const [moveslist, setMovesList] = useState([]);
-  const [moveName, setMoveName] = useState([]);
+  // const [moveName, setMoveName] = useState([]);
 
   const { id } = useParams();
 
@@ -20,10 +20,14 @@ const PokePage = () => {
     const data = await getPokeByID(id);
     setPokemon(data);
     setLoading(false);
+    
   };
+
+ 
 
   useEffect(() => {
     fectPokemon(id);
+   
   }, []);
 
   // const blackAndWhiteSpriteUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/${pokemon.id}.png`;

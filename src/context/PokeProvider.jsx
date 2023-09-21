@@ -7,6 +7,7 @@ const PokeProvider = ({ children }) => {
   const [offset, setOffset] = useState(0);
   const [globalPokemons, setGlobalPokemons] = useState([]);
 
+  const [filterState,setFilterState] = useState(true)
   //useForm
   const { valueSearch, onInputChange, onResetForm } = useForm({
     valueSearch: "",
@@ -57,6 +58,8 @@ const PokeProvider = ({ children }) => {
     const baseURL = "https://pokeapi.co/api/v2/";
     const res = await fetch(`${baseURL}pokemon/${id}`);
     const data = await res.json();
+
+    setFilterState(false)
     return data;
   };
 
@@ -80,6 +83,8 @@ const PokeProvider = ({ children }) => {
   useEffect(() => {
     getGlobalPoke();
   }, []);
+
+  
 
   //Cargar mas
   const onClickLoadMore = () => {
@@ -147,6 +152,8 @@ const PokeProvider = ({ children }) => {
         loading,
         filteredPokes,
         typedSelect,
+        filterState,
+        setFilterState,
         onClickLoadMore,
         getPokeByID,
         handleCheckbox,

@@ -1,8 +1,14 @@
+import { useContext, useEffect } from "react";
 import FilterBarra from "../components/FilterBarra";
 import Navlink from "./Navlink";
 import SearchInput from "./SearchInput";
+import { PokeContext } from "../context/PokeContext";
 
 const ToggleMenu = ({ isMenuOpen, setIsMenuOpen }) => {
+
+  const {filterState} =useContext(PokeContext)
+
+
   return (
     <main
       className={` fixed right-0 top-0 h-screen w-64 bg-white  transition-transform transform 
@@ -29,21 +35,24 @@ const ToggleMenu = ({ isMenuOpen, setIsMenuOpen }) => {
           />
         </svg>
       </button>
-      {/* <div className="flex items-center md:hidden">
-          
-       
-        </div> */}
-        
+      
+
       <section className="flex flex-col px-5 py-2 mx-auto">
-        <SearchInput/>
-        <div className="my-5 text-lg"> 
+        <SearchInput />
+        <div className="my-5 text-lg">
           <Navlink/>
         </div>
-        
-        <span className="py-2 leading-8 ">Filtrar por tipo</span>
-        <div className="grid grid-cols-2 gap-3 ">
-          <FilterBarra />
-        </div>
+
+        {filterState && (
+          
+          <>
+          
+            <span className="py-2 leading-8 ">Filtrar por tipo</span>
+            <div className="grid grid-cols-2 gap-3 ">
+              <FilterBarra />
+            </div>
+          </>
+        )}
       </section>
     </main>
   );

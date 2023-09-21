@@ -1,12 +1,15 @@
 import Ball from "../assets/img/ball.png";
 import { Link } from "react-router-dom";
 import SearchInput from "./SearchInput";
-import { useState,useEffect } from "react";
+import { useState,useEffect, useContext } from "react";
 import ToggleMenu from "./ToggleMenu";
 import Navlink from "./Navlink";
+import { PokeContext } from "../context/PokeContext";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMovil, setIsMovil] = useState(false);
+
+  const {setFilterState} =  useContext(PokeContext)
 
   // const openMenu = ()=>{
   //   setIsMenuOpen(true)
@@ -27,7 +30,11 @@ const Header = () => {
   return (
     <section className="z-40 w-full bg-slate-600 max-md:fixed">
       <header className="flex items-center justify-between px-3 py-4 mx-auto max-w-7xl">
-        <Link to="/">
+        <Link to="/"
+        onClick={()=>(
+          setFilterState(true)
+        )}
+        >
           <div className="flex flex-row items-center cursor-pointer">
             <img src={Ball} width="46px" alt="Pokeball" />
             <span className="pl-1 text-xl font-semibold text-white">
@@ -40,15 +47,8 @@ const Header = () => {
         </div>
        
         <div className="max-md:hidden">
-          {/* <nav className="flex items-center font-semibold text-white ">
-          <Link className="pr-2" to="/">
-            Inicio
-          </Link>
-          <Link className="pr-2" to="">
-            Pokedex
-          </Link>
-        </nav> */}
-        <Navlink/>
+          
+        <Navlink />
         </div>
         
 
@@ -86,6 +86,8 @@ const Header = () => {
       <ToggleMenu
       isMenuOpen={isMenuOpen}
       setIsMenuOpen={setIsMenuOpen}
+      // filterState={filterState}
+      // setFilterState={setFilterState}
       />
     </section>
   );
