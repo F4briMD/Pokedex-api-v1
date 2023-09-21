@@ -27,25 +27,25 @@ const PokePage = () => {
 
   // const blackAndWhiteSpriteUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/${pokemon.id}.png`;
 
-  const getMovesName = async () => {
-    const MoveURL = "https://pokeapi.co/api/v2/";
-    const res = await fetch(`${MoveURL}pokemon/${id}`);
-    const data = await res.json();
-    // setMoveName(data)
+  // const getMovesName = async () => {
+  //   const MoveURL = "https://pokeapi.co/api/v2/";
+  //   const res = await fetch(`${MoveURL}pokemon/${id}`);
+  //   const data = await res.json();
+  //   // setMoveName(data)
 
-    const moves = data.moves.map((move) => {
-      return {
-        name: move.move.name,
-        url: move.move.url,
-      };
-    });
+  //   const moves = data.moves.map((move) => {
+  //     return {
+  //       name: move.move.name,
+  //       url: move.move.url,
+  //     };
+  //   });
 
-    setMoveName(moves);
-  };
+  //   setMoveName(moves);
+  // };
 
-  useEffect(() => {
-    getMovesName();
-  }, [id]);
+  // useEffect(() => {
+  //   getMovesName();
+  // }, [id]);
 
   useEffect(() => {
     const fetchMoves = async () => {
@@ -66,12 +66,14 @@ const PokePage = () => {
           generation: moveData.generation.name,
           damage_class: moveData.damage_class.name
         };
+        
       });
 
       // Espera a que todas las solicitudes de movimiento se completen antes de configurar la lista de movimientos
       const movesWithIds = await Promise.all(moves);
 
       setMovesList(movesWithIds);
+      setLoading(false)
     };
 
     fetchMoves();
@@ -95,8 +97,8 @@ const PokePage = () => {
       {loading ? (
         <Loader />
       ) : (
-        <main className="flex flex-row mt-5">
-          <section className="w-3/4 p-5 mr-2 rounded-lg bg-slate-200">
+        <main className="flex flex-row mt-5 max-md:flex-col-reverse">
+          <section className="w-3/4 p-5 mr-2 rounded-lg max-md:w-full bg-slate-200">
             <h2 className="text-4xl font-medium">{firstMayus(pokemon.name)}</h2>
             <p className="mt-3 text-lg font-medium ">Habilidades</p>
             <div className="flex flex-row my-2 gap-x-3">
@@ -164,7 +166,11 @@ const PokePage = () => {
             </table>
           </section>
 
-          <section className="flex flex-col w-1/4 h-full px-5 py-3 text-white rounded-lg bg-neutral-600">
+          <section className="flex flex-col w-1/4 h-full px-5 py-3 mx-auto text-white rounded-lg max-md:w-4/5 "
+          style={{
+            backgroundColor: `rgba(var(--color-${pokemon.types[0].type.name}),0.55)`,
+          }}
+          >
             <div className="">
               <span className="text-xl font-semibold ">#{pokemon.id}</span>
               <div className="">
@@ -189,7 +195,7 @@ const PokePage = () => {
                     </span>
                   ))}
                 </div>
-                <div className="flex flex-row justify-around gap-2 py-1 bg-gray-500 rounded-full text-cente1">
+                <div className="flex flex-row justify-around gap-2 py-1 font-medium text-center text-gray-900 bg-gray-200 rounded-full text-cente1">
                   <div className="">
                     <p>Altura</p>
                     <span>{pokemon.height}</span>
@@ -206,35 +212,35 @@ const PokePage = () => {
               <h1 className="mb-2 text-base font-bold text-center">
                 Estadísticas
               </h1>
-              <div className="grid grid-cols-2 gap-2 px-2 py-1 text-center bg-gray-400 rounded-xl">
+              <div className="grid grid-cols-2 gap-2 px-2 py-1 font-medium text-center text-gray-900 bg-gray-200 rounded-xl">
                 <div className="">
                   <span>Hp</span>
-                  <div className=""></div>
+                  <div className="border-b-2 border-green-500"></div>
                   <span className="">{pokemon.stats[0].base_stat}</span>
                 </div>
                 <div className="">
                   <span>Attack</span>
-                  <div className=""></div>
+                  <div className="border-b-2 border-red-500"></div>
                   <span className="">{pokemon.stats[1].base_stat}</span>
                 </div>
                 <div className="">
                   <span>Defense</span>
-                  <div className=""></div>
+                  <div className="border-b-2 border-neutral-500"></div>
                   <span className="">{pokemon.stats[2].base_stat}</span>
                 </div>
                 <div className="">
                   <span>Special Attack</span>
-                  <div className=""></div>
+                  <div className="border-b-2 border-pink-400"></div>
                   <span className="">{pokemon.stats[3].base_stat}</span>
                 </div>
                 <div className="">
                   <span>Special Defense</span>
-                  <div className=""></div>
+                  <div className="border-b-2 border-amber-500"></div>
                   <span className="">{pokemon.stats[4].base_stat}</span>
                 </div>
                 <div className="">
                   <span>Speed</span>
-                  <div className=""></div>
+                  <div className="border-b-2 border-sky-500"></div>
                   <span className="">{pokemon.stats[5].base_stat}</span>
                 </div>
               </div>
