@@ -11,9 +11,7 @@ const Header = () => {
 
   const {setFilterState} =  useContext(PokeContext)
 
-  // const openMenu = ()=>{
-  //   setIsMenuOpen(true)
-  // }
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -86,8 +84,7 @@ const Header = () => {
       <ToggleMenu
       isMenuOpen={isMenuOpen}
       setIsMenuOpen={setIsMenuOpen}
-      // filterState={filterState}
-      // setFilterState={setFilterState}
+      
       />
     </section>
   );
