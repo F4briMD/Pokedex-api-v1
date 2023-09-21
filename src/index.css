@@ -80,6 +80,9 @@ body{
 		.table-move{
 			@apply px-2 py-3
 		}
+		.table-container{
+			@apply w-full  max-lg:overflow-x-scroll
+		}
 		
 
 	}

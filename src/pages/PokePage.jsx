@@ -3,6 +3,7 @@ import { PokeContext } from "../context/PokeContext";
 import { useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 import { firstMayus } from "../helper/helper";
+import Gotop from "../components/Gotop";
 
 const PokePage = () => {
   const { getPokeByID } = useContext(PokeContext);
@@ -97,8 +98,8 @@ const PokePage = () => {
       {loading ? (
         <Loader />
       ) : (
-        <main className="flex flex-row mt-5 max-md:flex-col-reverse">
-          <section className="w-3/4 p-5 mr-2 rounded-lg max-md:w-full bg-slate-200">
+        <main className="flex flex-row mt-5 max-md:flex-col-reverse max-md:mt-24">
+          <section className="w-3/4 p-5 mr-2 rounded-lg max-md:w-full max-md:mt-14 bg-slate-200">
             <h2 className="text-4xl font-medium">{firstMayus(pokemon.name)}</h2>
             <p className="mt-3 text-lg font-medium ">Habilidades</p>
             <div className="flex flex-row my-2 gap-x-3">
@@ -113,8 +114,8 @@ const PokePage = () => {
             </div>
 
             <h3 className="mt-5 mb-3 text-2xl font-medium">Lista de Movimientos </h3>
-
-            <table className="w-full ">
+            <div className="table-container ">
+              <table className="w-full">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                   <th scope="col" className="py-3 ">
@@ -164,6 +165,8 @@ const PokePage = () => {
                 ))}
               </tbody>
             </table>
+            </div>
+            
           </section>
 
           <section className="flex flex-col w-1/4 h-full px-5 py-3 mx-auto text-white rounded-lg max-md:w-4/5 "
@@ -213,32 +216,34 @@ const PokePage = () => {
                 Estadísticas
               </h1>
               <div className="grid grid-cols-2 gap-2 px-2 py-1 font-medium text-center text-gray-900 bg-gray-200 rounded-xl">
-                <div className="">
+                <div className="my-auto">
                   <span>Hp</span>
                   <div className="border-b-2 border-green-500"></div>
                   <span className="">{pokemon.stats[0].base_stat}</span>
                 </div>
-                <div className="">
+                <div className="my-auto">
                   <span>Attack</span>
                   <div className="border-b-2 border-red-500"></div>
                   <span className="">{pokemon.stats[1].base_stat}</span>
                 </div>
-                <div className="">
-                  <span>Defense</span>
-                  <div className="border-b-2 border-neutral-500"></div>
-                  <span className="">{pokemon.stats[2].base_stat}</span>
-                </div>
-                <div className="">
-                  <span>Special Attack</span>
-                  <div className="border-b-2 border-pink-400"></div>
-                  <span className="">{pokemon.stats[3].base_stat}</span>
-                </div>
-                <div className="">
+                
+                <div className="my-auto">
                   <span>Special Defense</span>
                   <div className="border-b-2 border-amber-500"></div>
                   <span className="">{pokemon.stats[4].base_stat}</span>
                 </div>
-                <div className="">
+                <div className="my-auto">
+                  <span>Special Attack</span>
+                  <div className="border-b-2 border-pink-400"></div>
+                  <span className="">{pokemon.stats[3].base_stat}</span>
+                </div>
+                
+                <div className="my-auto">
+                  <span>Defense</span>
+                  <div className="border-b-2 border-neutral-500"></div>
+                  <span className="">{pokemon.stats[2].base_stat}</span>
+                </div>
+                <div className="my-auto">
                   <span>Speed</span>
                   <div className="border-b-2 border-sky-500"></div>
                   <span className="">{pokemon.stats[5].base_stat}</span>
@@ -246,6 +251,7 @@ const PokePage = () => {
               </div>
             </div>
           </section>
+          <Gotop/>
         </main>
       )}
     </>

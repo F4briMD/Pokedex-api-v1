@@ -17,7 +17,7 @@ function AppRouter() {
     <main className='flex flex-col items-center h-full mx-auto '>
       <Router>
         <Header/>
-        <section className='w-full mx-auto max-md:w-4/5 max-sm:w-full max-w-7xl'>
+        <section className='w-full mx-auto max-md:w-4/5 max-sm:w-full max-w-7xl max-lg:max-w-max ' >
           <Routes>
           <Route path='/' element={<Home loading={loading}/>}/>
           <Route path='/pokemon/:id' element={<PokePage/>}/>
